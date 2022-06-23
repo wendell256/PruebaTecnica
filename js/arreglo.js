@@ -1,7 +1,7 @@
 var classroom = [
     {
         instructor: {
-            nombre:"Goku",
+            nombre: "Goku",
             correo: "goku@gmail.com",
             imagen: "goku.jpg",
         },
@@ -29,7 +29,7 @@ var classroom = [
 
     {
         instructor: {
-            nombre:"Vegeta",
+            nombre: "Vegeta",
             correo: "vegeta@gmail.com",
             imagen: "vegeta.jpg",
         },
@@ -57,7 +57,7 @@ var classroom = [
 
     {
         instructor: {
-            nombre:"Patricio",
+            nombre: "Patricio",
             correo: "patricio@gmail.com",
             imagen: "patricio.jpg",
         },

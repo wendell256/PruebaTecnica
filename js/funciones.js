@@ -25,21 +25,21 @@ function cargarExistentes() {
         img.setAttribute("src", imgDir)
         img.classList.add("avatar")
 
-        var container= document.createElement("div")
+        var container = document.createElement("div")
         container.classList.add("container")
 
-        var parentRow= document.createElement("div")
+        var parentRow = document.createElement("div")
         parentRow.classList.add("row")
 
-        var imgCol=document.createElement("div")
+        var imgCol = document.createElement("div")
         imgCol.classList.add("col-2")
 
-        var txtCol=document.createElement("div")
+        var txtCol = document.createElement("div")
         txtCol.classList.add("col-4")
 
-        var childRow1= document.createElement("div")
+        var childRow1 = document.createElement("div")
         childRow1.classList.add("row")
-        var childRow2= document.createElement("div")
+        var childRow2 = document.createElement("div")
         childRow2.classList.add("row")
 
         var nombreUsuario = document.createElement("h5")
@@ -50,7 +50,7 @@ function cargarExistentes() {
         correoUsuario.appendChild(document.createTextNode(classroom[i].instructor.correo))
         correoUsuario.classList.add("dropdown-correoUsuario")
 
-        
+
         container.appendChild(parentRow)
         parentRow.appendChild(imgCol)
         imgCol.appendChild(img)
@@ -63,30 +63,30 @@ function cargarExistentes() {
         li.appendChild(container)
         ul.appendChild(li)
     }
-   //añadir instructor
+    //añadir instructor
     var li = document.createElement("li")
     li.classList.add("dropdown-item")
 
 
     var img = document.createElement("img")
-        img.setAttribute("src", "./images/user-plus-solid.svg")
-        img.classList.add("avatar")
+    img.setAttribute("src", "./images/user-plus-solid.svg")
+    img.classList.add("avatar")
 
-    var container= document.createElement("div")
+    var container = document.createElement("div")
     container.classList.add("container")
 
-    var parentRow= document.createElement("div")
+    var parentRow = document.createElement("div")
     parentRow.classList.add("row")
 
-    var imgCol=document.createElement("div")
+    var imgCol = document.createElement("div")
     imgCol.classList.add("col-2")
 
-    var txtCol=document.createElement("div")
+    var txtCol = document.createElement("div")
     txtCol.classList.add("col-4")
 
-    var childRow1= document.createElement("div")
+    var childRow1 = document.createElement("div")
     childRow1.classList.add("row")
-    var childRow2= document.createElement("div")
+    var childRow2 = document.createElement("div")
     childRow2.classList.add("row")
 
     var nombreUsuario = document.createElement("h5")
@@ -97,7 +97,7 @@ function cargarExistentes() {
     correoUsuario.appendChild(document.createTextNode(""))
     correoUsuario.classList.add("dropdown-correoUsuario")
 
-    
+
     container.appendChild(parentRow)
     parentRow.appendChild(imgCol)
     imgCol.appendChild(img)
@@ -112,19 +112,19 @@ function cargarExistentes() {
 
     //policies
     var liPolicies = document.createElement("li")
-    
 
-    var containerPolicies= document.createElement("div")
-    containerPolicies.classList.add("container","smallerContainer")
 
-    var pPolicies= document.createElement("small")
+    var containerPolicies = document.createElement("div")
+    containerPolicies.classList.add("container", "smallerContainer")
+
+    var pPolicies = document.createElement("small")
     pPolicies.classList.add("policies")
     pPolicies.appendChild(document.createTextNode("Privacy Policy     •     Terms of Service"))
 
     containerPolicies.appendChild(pPolicies)
     liPolicies.appendChild(containerPolicies)
     ul.appendChild(liPolicies)
-    
+
     cargarClasesSeleccionado()
 }
 
@@ -178,7 +178,7 @@ function cargarClasesSeleccionado() {
         arrow.classList.add("p-2", "fa-solid", "fa-arrow-trend-up", "float-left", "class-icon")
 
         var folder = document.createElement("i")
-        folder.classList.add("p-2", "fa-regular", "fa-folder", "float-left", "class-icon" )
+        folder.classList.add("p-2", "fa-regular", "fa-folder", "float-left", "class-icon")
 
 
         medidasCard.appendChild(card)
@@ -187,7 +187,7 @@ function cargarClasesSeleccionado() {
         imgOverlay.appendChild(cardTitle)
         imgOverlay.appendChild(cardSeccion)
         card.appendChild(cardBody)
-        
+
         icons.appendChild(folder)
         icons.appendChild(arrow)
         card.appendChild(icons)
@@ -213,13 +213,13 @@ function addClase() {
     })
 
     localStorage.setItem("seleccionado", JSON.stringify(usuarioSel))
-    
+
     for (let i = 0; i < classroom.length; i++) {
         let nombre1 = classroom[i].instructor.nombre
         let nombre2 = usuarioSel.instructor.nombre
         let result = nombre1.localeCompare(nombre2)
         if (result == 0) {
-            
+
             classroom[i].clases.push({
                 nombreClase: nombreAsignatura,
                 codigo: codigoAsignatura,
@@ -233,10 +233,10 @@ function addClase() {
     }
     localStorage.setItem("existentes", JSON.stringify(classroom))
     alert("Clase creada con exitosamente.")
-    document.getElementById("nombreAsignatura").value=""
-    document.getElementById("seccionAsignatura").value=""
-    document.getElementById("codigoAsignatura").value=""
-    document.getElementById("descripcionAsignatura").value=""
+    document.getElementById("nombreAsignatura").value = ""
+    document.getElementById("seccionAsignatura").value = ""
+    document.getElementById("codigoAsignatura").value = ""
+    document.getElementById("descripcionAsignatura").value = ""
 }
 
 

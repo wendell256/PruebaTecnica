@@ -1,76 +1,77 @@
 @font-face {
     font-family: "ProductSansBold";
     src: url("../fonts/Product Sans Bold.ttf");
- }
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-h5{
+h5 {
     font-family: "ProductSansBold"
 }
 
-p{
+p {
     font-family: 'Roboto', sans-serif;
 }
 
-small{
+small {
     font-family: 'Roboto', sans-serif;
     text-align: center;
     color: #63676b;
 }
-li{
-    cursor:pointer;
+
+li {
+    cursor: pointer;
 }
 
 #usuarios {
-    min-width:370px;
-    
-  }
+    min-width: 370px;
+
+}
 
 
-.avatar{
+.avatar {
     width: 52px;
     height: 52px;
     border: 1px solid #e9e9e9;
-    border-radius:50%;
+    border-radius: 50%;
 }
 
-.class-icon{
-    color:#74787b;
+.class-icon {
+    color: #74787b;
 }
 
-.icon{
-    color:#74787b;
+.icon {
+    color: #74787b;
     margin-right: 20px;
     margin-left: 20px;
 }
 
-.card-img{
+.card-img {
     object-fit: cover;
-    height:120px;
+    height: 120px;
 }
 
-.card-body{
+.card-body {
     height: 150px;
 }
 
-.card-footer{
+.card-footer {
     height: 50px;
     padding: 10px;
 }
 
-.divider{
+.divider {
     margin-top: -2px;
     color: #b6b6b6;
 }
 
-.dropdown-correoUsuario{
+.dropdown-correoUsuario {
     margin-top: -8px;
     color: #63676b;
 }
 
-.smallerContainer{
+.smallerContainer {
     height: 20px;
     margin-top: 10px;
     margin-left: 75px;
 }
-
