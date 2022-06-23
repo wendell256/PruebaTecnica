@@ -12,6 +12,11 @@ p{
     font-family: 'Roboto', sans-serif;
 }
 
+small{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #63676b;
+}
 li{
     cursor:pointer;
 }
@@ -61,5 +66,11 @@ li{
 .dropdown-correoUsuario{
     margin-top: -8px;
     color: #63676b;
+}
+
+.smallerContainer{
+    height: 20px;
+    margin-top: 10px;
+    margin-left: 75px;
 }
 

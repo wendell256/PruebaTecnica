@@ -9,6 +9,7 @@ function cargarExistentes() {
 
     var ul = document.getElementById("usuarios")
 
+    //users
     for (var i = 0; i < classroom.length; i++) {
         var li = document.createElement("li")
         li.classList.add("dropdown-item")
@@ -62,7 +63,7 @@ function cargarExistentes() {
         li.appendChild(container)
         ul.appendChild(li)
     }
-   
+   //añadir instructor
     var li = document.createElement("li")
     li.classList.add("dropdown-item")
 
@@ -109,7 +110,21 @@ function cargarExistentes() {
     li.appendChild(container)
     ul.appendChild(li)
 
+    //policies
+    var liPolicies = document.createElement("li")
+    
 
+    var containerPolicies= document.createElement("div")
+    containerPolicies.classList.add("container","smallerContainer")
+
+    var pPolicies= document.createElement("small")
+    pPolicies.classList.add("policies")
+    pPolicies.appendChild(document.createTextNode("Privacy Policy     •     Terms of Service"))
+
+    containerPolicies.appendChild(pPolicies)
+    liPolicies.appendChild(containerPolicies)
+    ul.appendChild(liPolicies)
+    
     cargarClasesSeleccionado()
 }
 
