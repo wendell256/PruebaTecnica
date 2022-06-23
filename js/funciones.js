@@ -11,9 +11,9 @@ function cargarExistentes() {
     for (var i = 0; i < classroom.length; i++) {
         var li = document.createElement("li")
         li.classList.add("dropdown-item")
-        
-        li.onclick= function(arg) {
-            return function() {
+
+        li.onclick = function (arg) {
+            return function () {
                 recargarUsuario(arg)
             }
         }(i);
@@ -38,9 +38,9 @@ function cargarExistentes() {
     cargarClasesSeleccionado()
 }
 
-function recargarUsuario(usuarioSel){
+function recargarUsuario(usuarioSel) {
     localStorage.setItem("seleccionado", JSON.stringify(classroom[usuarioSel]))
-    
+
     document.getElementById("current-user-img").src = "./profile-pics/" + classroom[usuarioSel].instructor.imagen
     cargarClasesSeleccionado()
 }
@@ -48,7 +48,7 @@ function recargarUsuario(usuarioSel){
 function cargarClasesSeleccionado() {
     var clasesSel = JSON.parse(localStorage.getItem("seleccionado")).clases
     var layout = document.getElementById("clases-layout")
-        layout.replaceChildren()
+    layout.replaceChildren()
 
     for (let i = 0; i < clasesSel.length; i++) {
         var img = document.createElement("img")
@@ -78,6 +78,17 @@ function cargarClasesSeleccionado() {
 
         var divider = document.createElement("hr")
 
+        var icons = document.createElement("div")
+        icons.classList.add("d-flex", "flex-row-reverse")
+
+
+        var arrow = document.createElement("i")
+        arrow.classList.add("p-2", "fa-solid", "fa-arrow-trend-up", "float-left")
+
+        var folder = document.createElement("i")
+        folder.classList.add("p-2", "fa-regular", "fa-folder", "float-left")
+
+
         medidasCard.appendChild(card)
         card.appendChild(img)
         card.appendChild(imgOverlay)
@@ -85,8 +96,9 @@ function cargarClasesSeleccionado() {
         imgOverlay.appendChild(cardSeccion)
         card.appendChild(cardBody)
         card.appendChild(divider)
-
-        
+        icons.appendChild(folder)
+        icons.appendChild(arrow)
+        card.appendChild(icons)
         layout.appendChild(medidasCard)
 
     }
