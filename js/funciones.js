@@ -10,6 +10,13 @@ function cargarExistentes() {
     var ul = document.getElementById("usuarios")
     for (var i = 0; i < classroom.length; i++) {
         var li = document.createElement("li")
+        li.classList.add("dropdown-item")
+        
+        li.onclick= function(arg) {
+            return function() {
+                recargarUsuario(arg)
+            }
+        }(i);
 
         var img = document.createElement("img")
         var imgDir = "./profile-pics/" + classroom[i].instructor.imagen
@@ -31,9 +38,17 @@ function cargarExistentes() {
     cargarClasesSeleccionado()
 }
 
+function recargarUsuario(usuarioSel){
+    localStorage.setItem("seleccionado", JSON.stringify(classroom[usuarioSel]))
+    
+    document.getElementById("current-user-img").src = "./profile-pics/" + classroom[usuarioSel].instructor.imagen
+    cargarClasesSeleccionado()
+}
+
 function cargarClasesSeleccionado() {
     var clasesSel = JSON.parse(localStorage.getItem("seleccionado")).clases
-
+    var layout = document.getElementById("clases-layout")
+        layout.replaceChildren()
 
     for (let i = 0; i < clasesSel.length; i++) {
         var img = document.createElement("img")
@@ -71,7 +86,7 @@ function cargarClasesSeleccionado() {
         card.appendChild(cardBody)
         card.appendChild(divider)
 
-        var layout = document.getElementById("clases-layout")
+        
         layout.appendChild(medidasCard)
 
     }
