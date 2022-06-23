@@ -41,11 +41,11 @@ function cargarExistentes() {
         var childRow2= document.createElement("div")
         childRow2.classList.add("row")
 
-        var nombreUsuario = document.createElement("div")
+        var nombreUsuario = document.createElement("h5")
         nombreUsuario.appendChild(document.createTextNode(classroom[i].instructor.nombre))
         nombreUsuario.classList.add("dropdown-nombreUsuario")
 
-        var correoUsuario = document.createElement("div")
+        var correoUsuario = document.createElement("p")
         correoUsuario.appendChild(document.createTextNode(classroom[i].instructor.correo))
         correoUsuario.classList.add("dropdown-correoUsuario")
 
@@ -103,9 +103,11 @@ function cargarClasesSeleccionado() {
 
         var cardBody = document.createElement("div")
         cardBody.classList.add("card-body")
-        cardBody.appendChild(document.createTextNode(clasesSel[i].descripcion))
 
-       
+        var cardText = document.createElement("p")
+        cardText.appendChild(document.createTextNode(clasesSel[i].descripcion))
+
+        cardBody.appendChild(cardText)
 
         var icons = document.createElement("div")
         icons.classList.add("d-flex", "flex-row-reverse", "card-footer", "bg-transparent")

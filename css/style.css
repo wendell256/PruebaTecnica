@@ -1,8 +1,16 @@
 @font-face {
-    font-family: ProductSans Bold;
-    src: url("./fonts/Product Sans Regular.ttf");
+    font-family: "ProductSansBold";
+    src: url("./fonts/Product Sans Bold.ttf");
  }
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+h5{
+    font-family: "ProductSansBold"
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+}
 #usuarios {
     min-width:370px;
     
