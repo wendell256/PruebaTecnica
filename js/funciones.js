@@ -49,9 +49,7 @@ function cargarExistentes() {
         correoUsuario.appendChild(document.createTextNode(classroom[i].instructor.correo))
         correoUsuario.classList.add("dropdown-correoUsuario")
 
-        /*li.appendChild(img)
-        li.appendChild(nombreUsuario)
-        li.appendChild(correoUsuario)*/
+        
         container.appendChild(parentRow)
         parentRow.appendChild(imgCol)
         imgCol.appendChild(img)
@@ -64,6 +62,54 @@ function cargarExistentes() {
         li.appendChild(container)
         ul.appendChild(li)
     }
+   
+    var li = document.createElement("li")
+    li.classList.add("dropdown-item")
+
+
+    var img = document.createElement("img")
+        img.setAttribute("src", "./images/user-plus-solid.svg")
+        img.classList.add("avatar")
+
+    var container= document.createElement("div")
+    container.classList.add("container")
+
+    var parentRow= document.createElement("div")
+    parentRow.classList.add("row")
+
+    var imgCol=document.createElement("div")
+    imgCol.classList.add("col-2")
+
+    var txtCol=document.createElement("div")
+    txtCol.classList.add("col-4")
+
+    var childRow1= document.createElement("div")
+    childRow1.classList.add("row")
+    var childRow2= document.createElement("div")
+    childRow2.classList.add("row")
+
+    var nombreUsuario = document.createElement("h5")
+    nombreUsuario.appendChild(document.createTextNode("Agregar Instructor"))
+    nombreUsuario.classList.add("dropdown-nombreUsuario")
+
+    var correoUsuario = document.createElement("p")
+    correoUsuario.appendChild(document.createTextNode(""))
+    correoUsuario.classList.add("dropdown-correoUsuario")
+
+    
+    container.appendChild(parentRow)
+    parentRow.appendChild(imgCol)
+    imgCol.appendChild(img)
+    parentRow.appendChild(txtCol)
+    txtCol.appendChild(childRow1)
+    txtCol.appendChild(childRow2)
+    childRow1.appendChild(nombreUsuario)
+    childRow2.appendChild(correoUsuario)
+
+    li.appendChild(container)
+    ul.appendChild(li)
+
+
     cargarClasesSeleccionado()
 }
 
@@ -171,22 +217,13 @@ function addClase() {
 
     }
     localStorage.setItem("existentes", JSON.stringify(classroom))
-
+    alert("Clase creada con exitosamente.")
+    document.getElementById("nombreAsignatura").value=""
+    document.getElementById("seccionAsignatura").value=""
+    document.getElementById("codigoAsignatura").value=""
+    document.getElementById("descripcionAsignatura").value=""
 }
 
-/*<div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img src="./images/london.jpg" class="card-img" >
-                    <div class="card-img-overlay text-white">
-                        <h5 class="card-title">Clase</h5>
-                        <p class="card-text">Seccion</p>
-                    </div>
-                    <div class="card-body">
-                        aa
-                    </div>
-                    <hr/>
-                    
-                </div>
-            </div>*/
+
 
 
