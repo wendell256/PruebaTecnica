@@ -8,6 +8,7 @@ function cargarExistentes() {
     document.getElementById("current-user-img").src = "./profile-pics/" + classroom[0].instructor.imagen
 
     var ul = document.getElementById("usuarios")
+
     for (var i = 0; i < classroom.length; i++) {
         var li = document.createElement("li")
         li.classList.add("dropdown-item")
@@ -21,18 +22,46 @@ function cargarExistentes() {
         var img = document.createElement("img")
         var imgDir = "./profile-pics/" + classroom[i].instructor.imagen
         img.setAttribute("src", imgDir)
+        img.classList.add("avatar")
 
-        var nombreUsuario = document.createElement("a")
+        var container= document.createElement("div")
+        container.classList.add("container")
+
+        var parentRow= document.createElement("div")
+        parentRow.classList.add("row")
+
+        var imgCol=document.createElement("div")
+        imgCol.classList.add("col-2")
+
+        var txtCol=document.createElement("div")
+        txtCol.classList.add("col-4")
+
+        var childRow1= document.createElement("div")
+        childRow1.classList.add("row")
+        var childRow2= document.createElement("div")
+        childRow2.classList.add("row")
+
+        var nombreUsuario = document.createElement("div")
         nombreUsuario.appendChild(document.createTextNode(classroom[i].instructor.nombre))
-        nombreUsuario.classList.add("dropdown-nombre")
+        nombreUsuario.classList.add("dropdown-nombreUsuario")
 
-        var correoUsuario = document.createElement("a")
+        var correoUsuario = document.createElement("div")
         correoUsuario.appendChild(document.createTextNode(classroom[i].instructor.correo))
-        correoUsuario.classList.add("dropdown-usuario")
+        correoUsuario.classList.add("dropdown-correoUsuario")
 
-        li.appendChild(img)
+        /*li.appendChild(img)
         li.appendChild(nombreUsuario)
-        li.appendChild(correoUsuario)
+        li.appendChild(correoUsuario)*/
+        container.appendChild(parentRow)
+        parentRow.appendChild(imgCol)
+        imgCol.appendChild(img)
+        parentRow.appendChild(txtCol)
+        txtCol.appendChild(childRow1)
+        txtCol.appendChild(childRow2)
+        childRow1.appendChild(nombreUsuario)
+        childRow2.appendChild(correoUsuario)
+
+        li.appendChild(container)
         ul.appendChild(li)
     }
     cargarClasesSeleccionado()
@@ -56,7 +85,7 @@ function cargarClasesSeleccionado() {
         img.classList.add("card-img")
 
         var medidasCard = document.createElement("div")
-        medidasCard.classList.add("col-12", "col-md-6", "col-lg-4")
+        medidasCard.classList.add("col-12", "col-md-6", "col-lg-3")
 
         var card = document.createElement("div")
         card.classList.add("card")
@@ -76,17 +105,17 @@ function cargarClasesSeleccionado() {
         cardBody.classList.add("card-body")
         cardBody.appendChild(document.createTextNode(clasesSel[i].descripcion))
 
-        var divider = document.createElement("hr")
+       
 
         var icons = document.createElement("div")
-        icons.classList.add("d-flex", "flex-row-reverse")
+        icons.classList.add("d-flex", "flex-row-reverse", "card-footer", "bg-transparent")
 
 
         var arrow = document.createElement("i")
-        arrow.classList.add("p-2", "fa-solid", "fa-arrow-trend-up", "float-left")
+        arrow.classList.add("p-2", "fa-solid", "fa-arrow-trend-up", "float-left", "class-icon")
 
         var folder = document.createElement("i")
-        folder.classList.add("p-2", "fa-regular", "fa-folder", "float-left")
+        folder.classList.add("p-2", "fa-regular", "fa-folder", "float-left", "class-icon" )
 
 
         medidasCard.appendChild(card)
@@ -95,7 +124,7 @@ function cargarClasesSeleccionado() {
         imgOverlay.appendChild(cardTitle)
         imgOverlay.appendChild(cardSeccion)
         card.appendChild(cardBody)
-        card.appendChild(divider)
+        
         icons.appendChild(folder)
         icons.appendChild(arrow)
         card.appendChild(icons)
@@ -104,6 +133,44 @@ function cargarClasesSeleccionado() {
     }
 }
 
+function addClase() {
+    var datos = document.getElementById("formClase")
+
+    var nombreAsignatura = datos[0].value
+    var seccionAsignatura = datos[1].value
+    var codigoAsignatura = datos[2].value
+    var descripcionAsignatura = datos[3].value
+
+    var usuarioSel = JSON.parse(localStorage.getItem("seleccionado"))
+    usuarioSel.clases.push({
+        nombreClase: nombreAsignatura,
+        codigo: codigoAsignatura,
+        seccion: seccionAsignatura,
+        descripcion: descripcionAsignatura
+    })
+
+    localStorage.setItem("seleccionado", JSON.stringify(usuarioSel))
+    
+    for (let i = 0; i < classroom.length; i++) {
+        let nombre1 = classroom[i].instructor.nombre
+        let nombre2 = usuarioSel.instructor.nombre
+        let result = nombre1.localeCompare(nombre2)
+        if (result == 0) {
+            
+            classroom[i].clases.push({
+                nombreClase: nombreAsignatura,
+                codigo: codigoAsignatura,
+                seccion: seccionAsignatura,
+                descripcion: descripcionAsignatura
+            })
+            cargarClasesSeleccionado()
+            break
+        }
+
+    }
+    localStorage.setItem("existentes", JSON.stringify(classroom))
+
+}
 
 /*<div class="col-12 col-md-6 col-lg-4">
                 <div class="card">
