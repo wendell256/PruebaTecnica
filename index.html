@@ -73,7 +73,7 @@
                     <h5 class="modal-title">Crear Clase</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body" onsubmit="return addClase()">
+                <div class="modal-body" o>
                     <form id="formClase">
                         <div class="mb-3">
                             <label for="nombreAsignatura" class="form-label">Nombre Asignatura</label>
@@ -92,7 +92,7 @@
                             <input type="text" class="form-control" id="descripcionAsignatura">
                         </div>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Agregar Clase</button>
+                        <button type="button" class="btn btn-primary" onclick="return addClase()">Agregar Clase</button>
                     </form>
                 </div>
 
